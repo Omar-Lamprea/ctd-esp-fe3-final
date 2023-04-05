@@ -1,15 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContextGlobal } from "./utils/global.context";
 
 
 const Card = ({dentists}) => {
   const {name, username, id} = dentists
+  const {state, dispatch} = useContextGlobal()
+  console.log(state.data);
 
-
+  const storageFavs = localStorage.getItem('favs')
+  const favs = JSON.parse(storageFavs)
+  const isfav = favs.find(fav => fav.id === id)
 
   const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-    console.log('agregando a favoritos: ' + id);
+    dispatch({type: "addFav", payload: dentists})
+    // const storageFavs = localStorage.getItem('favs')
+    // if(!storageFavs){
+    //   localStorage.setItem('favs', JSON.stringify([dentists]))
+    // }else{
+    //   const favs = JSON.parse(storageFavs)
+    //   const isfav = favs.find(fav => fav.id === id)
+      
+    //   if(!isfav){
+    //     favs.push(dentists)
+    //     localStorage.setItem('favs', JSON.stringify(favs))
+    //   }else{
+    //     console.error('dentist already exist')
+    //   }
+    // }
   }
 
 
@@ -25,7 +43,11 @@ const Card = ({dentists}) => {
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       </Link>
-        <button onClick={addFav} className="favButton">Add fav ⭐️</button>
+        {!isfav 
+          ? <button onClick={addFav} className="favButton">Add fav ⭐️</button>
+          : <button onClick={addFav} className="favButton" disabled>Add fav ⭐️</button>
+        }
+        
     </div>
   );
 };

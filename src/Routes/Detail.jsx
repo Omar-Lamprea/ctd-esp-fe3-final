@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useContextGlobal } from '../Components/utils/global.context'
 
@@ -8,10 +8,19 @@ import { useContextGlobal } from '../Components/utils/global.context'
 const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   const {id} = useParams()
-  const {state} = useContextGlobal()
+  const url = 'https://jsonplaceholder.typicode.com/users/' + id
 
-  const dentist = state.data.find(d => d.id === parseInt(id))
-  console.log(dentist);
+  // const {state} = useContextGlobal()
+  // const dentist = state.data.find(d => d.id === parseInt(id))
+  
+  const [dentist, setDentists] = useState()
+  
+  useEffect(() => {
+    fetch(url)
+    .then(res => res.json())
+    .then(data => setDentists(data))
+  }, [url])
+
   return (
     <>
       {dentist

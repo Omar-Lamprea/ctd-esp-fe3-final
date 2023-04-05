@@ -5,14 +5,28 @@ import { useContextGlobal } from '../Components/utils/global.context'
 
 const Home = () => {
   const {state} = useContextGlobal()
+  
+  
+  const dataCard = () =>{
+    let content;
+    console.log(state.data.status);
+    if(state.data.status){
+      content = <p>Error {state.data.status}</p>
+    }else{
+      content = 
+        state.data.length > 0
+          ? state.data.map(d => <Card key={d.id} dentists={d}/>)
+          : "cargando"
+      console.log(content);
+    }
+    return content
+  }
+
   return (
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'>
-        {state.data.length > 0
-          ? state.data.map(d => <Card key={d.id} dentists={d}/>)
-          : "cargando"
-        }
+        {dataCard()}
       </div>
     </main>
   )
