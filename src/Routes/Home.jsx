@@ -9,15 +9,15 @@ const Home = () => {
   
   const dataCard = () =>{
     let content;
-    console.log(state.data.status);
-    if(state.data.status){
+    // console.log(state.data.status);
+    if(state.data?.status){
       content = <p>Error {state.data.status}</p>
     }else{
       content = 
-        state.data.length > 0
+        state.data?.length > 0
           ? state.data.map(d => <Card key={d.id} dentists={d}/>)
           : "cargando"
-      console.log(content);
+      // console.log(content);
     }
     return content
   }
