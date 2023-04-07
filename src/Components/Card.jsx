@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/global.context";
+import { type } from "@testing-library/user-event/dist/type";
 
 
 const Card = ({dentists}) => {
@@ -11,6 +12,9 @@ const Card = ({dentists}) => {
 
   const addFav = ()=>{
     dispatch({type: "addFav", payload: dentists})
+  }
+  const removeFav = ()=>{
+    dispatch({type:"removeFav", payload: dentists})
   }
 
 
@@ -23,7 +27,7 @@ const Card = ({dentists}) => {
       </Link>
         {!isfav 
           ? <button onClick={addFav} className="favButton">Add fav ⭐️</button>
-          : <button onClick={addFav} className="favButton" disabled>Add fav ⭐️</button>
+          : <button onClick={removeFav} className="favButton">Remove fav ❌</button>
         }
         
     </div>

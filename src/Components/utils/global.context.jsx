@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 const initialState = {
   theme: localStorage.getItem('theme') || "light",
-  data: [],
+  APIdata: [],
   favs: JSON.parse(localStorage.getItem('favs')) || []
 }
 
@@ -16,12 +16,16 @@ const reducer = (state, action) => {
       case 'dark':
         localStorage.setItem('theme', action.payload)
         return  {...state, theme: action.payload}
-      case 'data':
+      case 'APIdata':
         const data = {...state, data: action.payload}
         return  data
       case 'addFav':
         localStorage.setItem('favs', JSON.stringify([...state.favs, action.payload]))
         return {...state, favs: [...state.favs, action.payload]}
+        case 'removeFav':
+          const newList = state.favs.filter(d => d.id !== action.payload.id)
+          localStorage.setItem('favs', JSON.stringify(newList))
+          return {...state, favs: newList}
       default:
           throw new Error('action type error')
   }
@@ -39,9 +43,9 @@ const ContextProvider = ({ children }) => {
       const res = await fetch(API)
       if(res.ok){
         const data = await res.json()
-        dispatch({type: 'data', payload: data})
+        dispatch({type: 'APIdata', payload: data})
       }else{
-        dispatch({type: 'data', payload: res})
+        dispatch({type: 'APIdata', payload: res})
       }
     } catch (error) {
       
