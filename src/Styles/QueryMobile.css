@@ -1,0 +1,33 @@
+@media screen and (max-width: 768px){
+  nav{
+    padding: 1rem .5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .h3-home{
+    margin-left: 0rem;
+  }
+  .card{
+    width: 95%;
+  }
+  .card.detail{
+    flex-direction: column;
+  }
+
+  .form-container{
+    flex-direction: column;
+  }
+  .form-container .form-info{
+    border-right: none;
+    border-bottom: 3px solid #ae6161;
+    height: initial;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  footer{
+    padding: 0;
+    padding-bottom: 2rem;
+  }
+}

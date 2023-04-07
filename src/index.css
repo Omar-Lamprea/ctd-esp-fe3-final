@@ -128,6 +128,7 @@ footer .logoDh{
 .card.detail{
   width: fit-content;
   flex-direction: row;
+  padding: 1rem 2rem;
 }
 .card.detail .details{
   margin-left: 2rem;
@@ -199,6 +200,7 @@ form{
   background-color: #ae6161;
   font-weight: bold;
   color: #fff;
+  cursor: pointer;
 }
 .form-container .form-inputs button:hover{
   background-color: #764142;
@@ -206,59 +208,4 @@ form{
 
 
 
-.dark nav{
-  background: linear-gradient(20deg, rgb(34 34 34) 50%, rgba(136,72,72,1) 100%);
-}
-.dark nav span{
-  color: #ee6565;
-}
-.dark{
-  background-color: #292929;
-  color: white;
-}
-.dark a, .dark button{
-  color: white;
-}
 
-.dark .btn-theme{
-  background-color: #525252;
-}
-.dark .card{
-  background-color: #525252;
-  border: none;
-}
-
-
-@media screen and (max-width: 768px){
-  nav{
-    padding: 1rem .5rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .h3-home{
-    margin-left: 0rem;
-  }
-  .card{
-    width: 95%;
-  }
-  .card.detail{
-    flex-direction: column;
-  }
-
-  .form-container{
-    flex-direction: column;
-  }
-  .form-container .form-info{
-    border-right: none;
-    border-bottom: 3px solid #ae6161;
-    height: initial;
-    margin: 0;
-    margin-bottom: 1rem;
-  }
-
-  footer{
-    padding: 0;
-    padding-bottom: 2rem;
-  }
-}
