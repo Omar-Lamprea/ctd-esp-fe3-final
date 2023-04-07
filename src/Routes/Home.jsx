@@ -1,4 +1,5 @@
 import Card from '../Components/Card'
+import Loader from '../Components/Loader'
 import { useContextGlobal } from '../Components/utils/global.context'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -16,7 +17,7 @@ const Home = () => {
       content = 
         state.data?.length > 0
           ? state.data.map(d => <Card key={d.id} dentists={d}/>)
-          : "cargando"
+          : <Loader />
       // console.log(content);
     }
     return content

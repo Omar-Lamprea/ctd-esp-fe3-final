@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/global.context";
-import { type } from "@testing-library/user-event/dist/type";
 
 
 const Card = ({dentists}) => {

@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import Loader from '../Components/Loader'
 
 const Detail = () => {
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   const {id} = useParams()
   const url = 'https://jsonplaceholder.typicode.com/users/' + id
-
-  // const {state} = useContextGlobal()
-  // const dentist = state.data.find(d => d.id === parseInt(id))
-  
   const [dentist, setDentists] = useState()
   
   useEffect(() => {
@@ -33,7 +27,7 @@ const Detail = () => {
               <p><strong>Website:</strong> https://{dentist?.website}</p>
             </div>
           </div>
-        : "cargando"
+        : <Loader />
       }
     </section>
   )

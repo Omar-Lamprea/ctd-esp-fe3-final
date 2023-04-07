@@ -10,7 +10,9 @@ const Footer = () => {
     <footer>
       <div className="logoDh">
         <p>Powered by</p>
-        <img width={200} src="/images/DH.png" alt='DH-logo' />
+        <a href="https://www.digitalhouse.com/" target="_blank" rel="noopener noreferrer">
+            <img width={200} src="/images/DH.png" alt='DH-logo' />
+          </a>
       </div>
         <div className="social">
           <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
