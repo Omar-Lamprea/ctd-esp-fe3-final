@@ -23,12 +23,13 @@ const Home = () => {
   }
 
   return (
-    <main className="" >
-      <h1>Home</h1>
+    <>
+      <h1>Dental Clinic</h1>
+      <h3 className='h3-home'>Our professionals:</h3>
       <div className='card-grid'>
         {dataCard()}
       </div>
-    </main>
+    </>
   )
 }
 

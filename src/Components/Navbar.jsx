@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav>
       <Link to='/'>
-        <img src="/images/DH.png" alt="" />
+        <h3 className='logo-nav'><span>D</span>H Odonto</h3>
       </Link>
       <div className="links">
       <Link to='/'> Home</Link>
@@ -27,8 +27,8 @@ const Navbar = () => {
 
       <button onClick={changeTheme} className="btn-theme">
         {state.theme === "dark"
-          ? "🌞"
-          : "🌜"
+          ? "🌓"
+          : "🌗"
         }
       </button>
       </div>

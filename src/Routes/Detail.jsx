@@ -22,20 +22,22 @@ const Detail = () => {
   }, [url])
 
   return (
-    <>
+    <section className='card-container'>
       {dentist
         ? 
           <div className="card detail">
             <img src="../images/doctor.jpg" alt="" />
-            <h3>{dentist?.name}</h3>
-            <p>{dentist?.email}</p>
-            <p>{dentist?.phone}</p>
-            <p>{dentist?.username}</p>
-            <p>{dentist?.website}</p>
+            <div className="details">
+              <h3>{dentist?.name}</h3>
+              <p><strong>Email:</strong> {dentist?.email}</p>
+              <p><strong>Phone:</strong> {dentist?.phone}</p>
+              <p><strong>Username:</strong> {dentist?.username}</p>
+              <p><strong>Website:</strong> https://{dentist?.website}</p>
+            </div>
           </div>
         : "cargando"
       }
-    </>
+    </section>
   )
 }
 

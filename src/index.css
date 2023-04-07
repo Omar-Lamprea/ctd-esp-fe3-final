@@ -14,35 +14,54 @@ code {
 
 .App{
   min-height: 100vh;
+  background-color: #f3f3f3;
 }
 
-
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
+main, footer{
+  width: 85vw;
+  margin: auto;
 }
 
 h1{
   text-align: center;
 }
-
-main, footer, nav{
-  width: 85vw;
-  margin: auto;
+.h3-home{
+  margin-left: 3rem;
 }
 
 nav{
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 8rem;
+  background: linear-gradient(20deg, rgba(227,227,227,1) 50%, rgba(168,81,81,1) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 nav .links{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+nav .links a{
+  margin: .5rem 1rem;
+  font-weight: bold;
+}
+nav .links a:hover{
+  color: #aa5656;
+}
+
+nav .logo-nav span{
+  color: #a85151;
+}
+
+.btn-theme{
+  background-color: #d6d5d5;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  padding: .2rem 1.5rem;
 }
 
 a{
@@ -51,66 +70,71 @@ a{
   margin: 5px;
   cursor: pointer;
 }
-a:hover{
-  color: rgb(136, 136, 136);
-} 
 
 footer {
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
   padding: 2rem;
   position: relative;
   bottom: 0;
-  height: 40px;
   margin-top: 2rem;
 }
 
-footer > img, nav img{
-  width: 200px;
-  margin: 0;
-}
 footer > p{
   margin: 0;
-  padding-top: 0.7rem;
 }
 
-form{
+footer .logoDh{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 
+
+
+
+.card-container{
+  height: 68vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .card{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
   width: 200px;
-  padding: 0.5rem;
-  margin: auto;
-  border: 0.5px solid rgb(136, 136, 136);
+  padding: 1rem;
+  border: 0.5px solid #ccc;
+  border-radius: 3px;
+  background-color: #e3e3e3;
 }
 .card img{
-  width: 100%;
-  height: 250px;
+  width: 190px;
+  height: 190px;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .card:hover{
-  box-shadow: 3px 3px 6px 0px rgb(170 206 222);
-  translate: -5px -5px;
-  transition-duration: .5s;
+  box-shadow: 3px 3px 6px 0px rgb(147 147 147);
+  translate: -2px -2px;
+  transition-duration: .2s;
 }
 
 .card.detail{
-  width: 400px;
+  width: fit-content;
+  flex-direction: row;
+}
+.card.detail .details{
+  margin-left: 2rem;
 }
 .card.detail img{
-  height: 300px;
+  height: 200px;
+  width: 200px;
 }
 .card.detail:hover{
   box-shadow: inherit;
@@ -120,47 +144,121 @@ form{
 .card-grid{
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   gap: 1rem;
-  /* width: 90vw; */
   height: auto;
   flex-wrap: wrap;
   margin: 0 auto;
+  min-height: 55vh;
 }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+.favButton{
+  background-color: rgb(170 206 222);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   width: 100%;
-  display: table;
-  border: 1px solid #ccc;
-
+  cursor: pointer;
+}
+.favButton:hover{
+  background-color: rgb(146 180 194);
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  margin: 0 auto;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.form-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68vh;
+}
+.form-container .form-info{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  border-right: 3px solid #ae6161;
+  padding: 1rem;
+}
+.form-container .form-inputs input, 
+.form-container .form-inputs button, 
+.form-container .form-inputs textarea{
+  border: 1px solid #ae6161;
+  padding: .5rem;
+  border-radius: 5px;
+  margin: .2rem 0;
+}
+.form-container .form-inputs button{
+  border: none;
+  background-color: #ae6161;
+  font-weight: bold;
+  color: #fff;
+}
+.form-container .form-inputs button:hover{
+  background-color: #764142;
 }
 
+
+
+.dark nav{
+  background: linear-gradient(20deg, rgb(34 34 34) 50%, rgba(136,72,72,1) 100%);
+}
+.dark nav span{
+  color: #ee6565;
+}
 .dark{
   background-color: #292929;
   color: white;
 }
-.dark a {
+.dark a, .dark button{
   color: white;
 }
 
-.btn-theme{
-  background-color: #929292;
-  border: none;
-  border-radius: 5px;
-  width: 50px;
-}
 .dark .btn-theme{
-  background-color: #ffffff;
+  background-color: #525252;
+}
+.dark .card{
+  background-color: #525252;
+  border: none;
+}
 
+
+@media screen and (max-width: 768px){
+  nav{
+    padding: 1rem .5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .h3-home{
+    margin-left: 0rem;
+  }
+  .card{
+    width: 95%;
+  }
+  .card.detail{
+    flex-direction: column;
+  }
+
+  .form-container{
+    flex-direction: column;
+  }
+  .form-container .form-info{
+    border-right: none;
+    border-bottom: 3px solid #ae6161;
+    height: initial;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  footer{
+    padding: 0;
+    padding-bottom: 2rem;
+  }
 }
