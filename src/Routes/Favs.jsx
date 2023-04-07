@@ -5,19 +5,22 @@ import { useContextGlobal } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
-  const {state} = useContextGlobal()
+  const {state, dispatch} = useContextGlobal()
   const favs = state.favs
   
   return (
-    <>
-      <h1>Dentists Favs</h1>
+    <section className="favs">
+      <div className="action-favs">
+        <h2>Favs Dentists</h2>
+        {favs.length > 0 && <button onClick={() => {dispatch({type: "removeAllFavs"})}}>Remove all</button>}
+      </div>
       <div className="card-grid">
         {favs.length > 0
           ? favs.map(fav => <Card key={fav.id} dentists={fav}/>)
           : <p>You haven't added any favorites yet</p>
         }
       </div>
-    </>
+    </section>
   );
 };
 

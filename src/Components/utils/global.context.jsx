@@ -13,19 +13,27 @@ const reducer = (state, action) => {
       case 'light':
         localStorage.setItem('theme', action.payload)
         return {...state, theme: action.payload}
+      
       case 'dark':
         localStorage.setItem('theme', action.payload)
         return  {...state, theme: action.payload}
+    
       case 'APIdata':
         const data = {...state, data: action.payload}
         return  data
+      
       case 'addFav':
         localStorage.setItem('favs', JSON.stringify([...state.favs, action.payload]))
         return {...state, favs: [...state.favs, action.payload]}
-        case 'removeFav':
-          const newList = state.favs.filter(d => d.id !== action.payload.id)
-          localStorage.setItem('favs', JSON.stringify(newList))
-          return {...state, favs: newList}
+      
+      case 'removeFav':
+        const newList = state.favs.filter(d => d.id !== action.payload.id)
+        localStorage.setItem('favs', JSON.stringify(newList))
+        return {...state, favs: newList}
+      
+      case 'removeAllFavs':
+        localStorage.setItem('favs', '[]')
+        return {...state, favs: []}
       default:
           throw new Error('action type error')
   }

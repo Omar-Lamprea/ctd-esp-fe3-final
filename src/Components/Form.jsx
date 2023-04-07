@@ -19,14 +19,14 @@ const Form = () => {
   const validateForm = () =>{
     let regex = new RegExp(/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/);
     
-    if(data.name.length < 5){ //validate name
-      setResponse('El nombre debe de contener mas de 5 caracteres')
+    if(data.name.trim().length < 5){ //validate name
+      setResponse(<p className="form-error">Error: <br /> El nombre debe de contener mas de 5 caracteres</p>)
     }else if(!regex.test(data.email)){ //validate email
-      setResponse('Ingrese un email válido')
+      setResponse(<p className="form-error">Error: <br /> Ingrese un email válido</p>)
     }else{ // succes
       console.log('Sending data:');
       console.log(data);
-      const text = `Gracias ${data.name}, te contactaremos cuanto antes vía mail`
+      const text = <h4>Gracias {data.name}, te contactaremos cuanto antes vía mail.</h4>
       setResponse(text)
     }
   }
@@ -40,9 +40,7 @@ const Form = () => {
         <button>Contact Us</button>
       </form>
 
-      {response &&
-        <p>{response}</p>
-      }
+      {response && response}
 
     </div>
   );

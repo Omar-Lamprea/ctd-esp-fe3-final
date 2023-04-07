@@ -15,6 +15,7 @@ const Detail = () => {
 
   return (
     <section className='card-container'>
+      <h2>Dentist Details {id}</h2>
       {dentist
         ? 
           <div className="card detail">
